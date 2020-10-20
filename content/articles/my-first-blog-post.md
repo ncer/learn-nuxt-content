@@ -1,3 +1,8 @@
-# My first blog post
+---
+title: My first Blog Post
+description: Learning how to use @nuxt/content to create a blog
+image: /images/179-800x600.jpg
+alt: my first blog post
+---
 
-Welcome to my first blog post using content module
+Изображения, включенные в содержимое статьи, всегда следует помещать в папку static, поскольку @nuxt/content не зависит от Webpack. Эта папка не пропускается через Webpack, в отличие от папки assets.
