@@ -4,6 +4,20 @@
     <p class="mb-2">{{ article.description }}</p>
     <img :src="article.image" :alt="article.alt" class="mb-2" />
 
+    <h2>Table of contents</h2>
+    <nav>
+      <ul class="ml-2 mb-2">
+        <li v-for="link of article.toc" :key="link.id">
+          <NuxtLink
+            :to="`#${link.id}`"
+            :class="{ 'py-2': link.depth === 2, 'ml-2 pb-2': link.depth === 3 }"
+          >
+            &middot; {{ link.text }}
+          </NuxtLink>
+        </li>
+      </ul>
+    </nav>
+
     <nuxt-content :document="article" />
 
     <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
