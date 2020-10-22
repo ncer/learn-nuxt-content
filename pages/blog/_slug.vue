@@ -3,6 +3,7 @@
     <h1>{{ article.title }}</h1>
     <p class="mb-2">{{ article.description }}</p>
     <img :src="article.image" :alt="article.alt" class="mb-2" />
+    <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
 
     <h2>Table of contents</h2>
     <nav>
@@ -20,7 +21,8 @@
 
     <nuxt-content :document="article" />
 
-    <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
+    <!-- начиная с Nuxt v2.13 компоненты в папке components импортируются автоматически, достаточно написать в Nuxt конфиге: components: true -->
+    <author :author="article.author" />
   </article>
 </template>
 
