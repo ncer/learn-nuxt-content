@@ -1,0 +1,15 @@
+### GET folder content
+GET {{host}}/_content
+Accept: application/json
+
+### GET folder content/articles
+GET {{host}}/_content/articles
+Accept: application/json
+
+### GET folder content/articles/:article
+GET {{host}}/_content/articles/lorem
+Accept: application/json
+
+### GET folder content/articles/:article with specific params
+GET {{host}}/_content/articles?only=title&only=description&only=img&only=slug&only=author
+Accept: application/json
