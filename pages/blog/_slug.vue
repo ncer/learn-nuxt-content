@@ -57,15 +57,22 @@ h2 {
   font-weight: bold;
   font-size: 28px;
 }
-.nuxt-content-container h2 {
+.nuxt-content h2 {
   font-weight: bold;
   font-size: 24px;
 }
-.nuxt-content-container h3 {
+.nuxt-content h3 {
   font-weight: bold;
   font-size: 20px;
 }
-.nuxt-content-container p {
+.nuxt-content p {
   margin-bottom: 20px;
+}
+
+.nuxt-content-highlight {
+  @apply relative;
+}
+.nuxt-content-highlight .filename {
+  @apply absolute right-0 text-gray-400 z-10 mr-2 mt-1 text-sm font-mono;
 }
 </style>
