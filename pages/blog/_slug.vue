@@ -5,24 +5,29 @@
     <img :src="article.image" :alt="article.alt" class="mb-2" />
     <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
 
-    <h2>Table of contents</h2>
-    <nav>
-      <ul class="ml-2 mb-2">
-        <li v-for="link of article.toc" :key="link.id">
-          <NuxtLink
-            :to="`#${link.id}`"
-            :class="{ 'py-2': link.depth === 2, 'ml-2 pb-2': link.depth === 3 }"
-          >
-            &middot; {{ link.text }}
-          </NuxtLink>
-        </li>
-      </ul>
-    </nav>
+    <div v-if="article.toc.length" class="my-4">
+      <h2>Table of contents</h2>
+      <nav>
+        <ul class="ml-2">
+          <li v-for="link of article.toc" :key="link.id">
+            <NuxtLink
+              :to="`#${link.id}`"
+              :class="{
+                'py-2': link.depth === 2,
+                'ml-2 pb-2': link.depth === 3,
+              }"
+            >
+              &middot; {{ link.text }}
+            </NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
     <nuxt-content :document="article" />
 
     <!-- начиная с Nuxt v2.13 компоненты в папке components импортируются автоматически, достаточно написать в Nuxt конфиге: components: true -->
-    <author :author="article.author" />
+    <author :author="article.author" class="my-4" />
 
     <hr />
 
