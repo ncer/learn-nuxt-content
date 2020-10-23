@@ -26,18 +26,20 @@
 
     <nuxt-content :document="article" />
 
-    <!-- начиная с Nuxt v2.13 компоненты в папке components импортируются автоматически, достаточно написать в Nuxt конфиге: components: true -->
-    <author :author="article.author" class="my-4" />
+    <NuxtLink :to="`/blog/author/${article.author.name}`">
+      <author :author="article.author" class="my-4" />
+    </NuxtLink>
 
     <hr />
 
+    <!-- начиная с Nuxt v2.13 компоненты в папке components импортируются автоматически, достаточно написать в Nuxt конфиге: components: true -->
     <prev-next :prev="prev" :next="next" class="my-4" />
   </article>
 </template>
 
 <script>
 export default {
-  name: 'SlugVue',
+  name: 'PageBlogPost',
 
   async asyncData({ $content, params }) {
     const article = await $content('articles', params.slug).fetch()
